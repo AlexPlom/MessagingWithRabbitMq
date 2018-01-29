@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Send", "Send\Send.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receive", "Receive\Receive.csproj", "{577405C8-9B96-47B8-B3E8-2FB88ABB1904}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewTask", "NewTask\NewTask.csproj", "{4F26A0FD-DF7E-4712-99EF-A911BEEF4850}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker", "Worker\Worker.csproj", "{035D89A3-4902-4DAE-B0C6-6E00E593922F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{577405C8-9B96-47B8-B3E8-2FB88ABB1904}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{577405C8-9B96-47B8-B3E8-2FB88ABB1904}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{577405C8-9B96-47B8-B3E8-2FB88ABB1904}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F26A0FD-DF7E-4712-99EF-A911BEEF4850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F26A0FD-DF7E-4712-99EF-A911BEEF4850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F26A0FD-DF7E-4712-99EF-A911BEEF4850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F26A0FD-DF7E-4712-99EF-A911BEEF4850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{035D89A3-4902-4DAE-B0C6-6E00E593922F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{035D89A3-4902-4DAE-B0C6-6E00E593922F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035D89A3-4902-4DAE-B0C6-6E00E593922F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{035D89A3-4902-4DAE-B0C6-6E00E593922F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

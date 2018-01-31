@@ -1,0 +1,2 @@
+cd Worker
+dotnet run

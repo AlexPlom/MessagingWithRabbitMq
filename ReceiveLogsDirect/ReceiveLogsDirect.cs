@@ -7,7 +7,7 @@ class ReceiveLogsDirect
 {
     public static void Main(string[] args)
     {
-        args = new string[] { "info", "error", "debug" };
+        args = new string[] { "info", "error", "debug", "bahyr" };
         var factory = new ConnectionFactory() { HostName = "localhost" };
         using (var connection = factory.CreateConnection())
         using (var channel = connection.CreateModel())

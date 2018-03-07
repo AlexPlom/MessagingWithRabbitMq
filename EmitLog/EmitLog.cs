@@ -6,23 +6,21 @@ class EmitLog
 {
     public static void Main(string[] args)
     {
-        var factory = new ConnectionFactory() { HostName = "localhost" };
+        var factory = new ConnectionFactory() { HostName = "docker-local.com" };
         using (var connection = factory.CreateConnection())
         using (var channel = connection.CreateModel())
         {
-            channel.ExchangeDeclare(exchange: "logs", type: "fanout");
+            channel.ExchangeDeclare("logs", "fanout");
 
             var message = GetMessage(args);
             var body = Encoding.UTF8.GetBytes(message);
-            channel.BasicPublish(exchange: "logs",
-                                 routingKey: "",
-                                 basicProperties: null,
-                                 body: body);
+            channel.BasicPublish("logs", "", null, body);
+
             Console.WriteLine(" [x] Sent {0}", message);
         }
 
-        //Console.WriteLine(" Press [enter] to exit.");
-        //Console.ReadLine();
+        Console.WriteLine(" Press [enter] to exit.");
+        Console.ReadLine();
     }
 
     private static string GetMessage(string[] args)
@@ -30,17 +28,5 @@ class EmitLog
         return ((args.Length > 0)
                ? string.Join(" ", args)
                : "info: Hello World!");
-    }
-
-    private static string[] GenerateRandomMessages()
-    {
-        string[] randomStrings = new string[10];
-
-        for (int i = 0; i < randomStrings.Length; i++)
-        {
-            randomStrings[i] = "error";
-        }
-
-        throw new Exception();
     }
 }

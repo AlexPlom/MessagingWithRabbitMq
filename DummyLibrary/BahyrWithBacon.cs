@@ -19,7 +19,5 @@ namespace DummyLibrary
                 return m.ToArray();
             }
         }
-
-
     }
 }

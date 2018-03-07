@@ -7,16 +7,14 @@ class ReceiveLogs
 {
     public static void Main()
     {
-        var factory = new ConnectionFactory() { HostName = "localhost" };
+        var factory = new ConnectionFactory() { HostName = "docker-local.com" };
         using (var connection = factory.CreateConnection())
         using (var channel = connection.CreateModel())
         {
-            channel.ExchangeDeclare(exchange: "logs", type: "fanout");
+            channel.ExchangeDeclare("logs", "fanout");
 
             var queueName = channel.QueueDeclare().QueueName;
-            channel.QueueBind(queue: queueName,
-                              exchange: "logs",
-                              routingKey: "");
+            channel.QueueBind(queueName, "logs", "");
 
             Console.WriteLine(" [*] Waiting for logs.");
 
@@ -27,9 +25,7 @@ class ReceiveLogs
                 var message = Encoding.UTF8.GetString(body);
                 Console.WriteLine(" [x] {0}", message);
             };
-            channel.BasicConsume(queue: queueName,
-                                 autoAck: true,
-                                 consumer: consumer);
+            channel.BasicConsume(queueName, true, consumer);
 
             Console.WriteLine(" Press [enter] to exit.");
             Console.ReadLine();

@@ -6,23 +6,24 @@ namespace Send
 {
     class Send
     {
-        public static void Main()
+        public static void Main(string[] args)
         {
             var factory = new ConnectionFactory() { HostName = "docker-local.com" };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "hello", durable: false, exclusive: false, autoDelete: false, arguments: null);
+                channel.QueueDeclare("hello", false, false, false, null);
 
-                string message = "Hello World!";
+                string message = "Default";
                 var body = Encoding.UTF8.GetBytes(message);
 
-                channel.BasicPublish(exchange: "", routingKey: "hello", basicProperties: null, body: body);
-                Console.WriteLine(" [x] Sent {0}", message);
+                while (true)
+                {
+                    channel.BasicPublish("", "hello", null, body);
+                    Console.WriteLine(" [x] Sent {0}", message);
+                    Console.ReadLine();
+                }
             }
-
-            Console.WriteLine(" Press [enter] to exit.");
-            Console.ReadLine();
         }
     }
 }

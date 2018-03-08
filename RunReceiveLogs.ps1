@@ -1,2 +1,0 @@
-cd ReceiveLog
-dotnet run
